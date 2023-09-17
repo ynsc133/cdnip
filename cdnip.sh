@@ -116,8 +116,8 @@ if [ "$pause" = "false" ] ; then
 else
 		/etc/init.d/$CLIEN restart;
 		echo "已重启$CLIEN";
-		echo "请稍等30秒";
-		sleep 10s;
+		echo "请稍等45秒";
+		sleep 45s;
 fi
 if [ "$ymorip" == "1" ]; then
 #开始循环
