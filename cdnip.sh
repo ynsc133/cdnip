@@ -81,6 +81,7 @@ for ((i=1; i<=$max_retries; i++)); do
         echo "Cloudflare账号登陆成功!"
         break
     elif [ $i -eq $max_retries ]; then
+        sed -i '/api.cloudflare.com/d' /etc/hosts
         echo "尝试5次登陆CF失败，检查CF邮箱、区域ID、API Key，这三者信息是否填写正确，或者查下当前代理的网络能否打开Cloudflare官网？"
         pushmessage="尝试5次登陆CF失败，检查CF邮箱、区域ID、API Key，这三者信息是否填写正确，或者查下当前代理的网络能否打开Cloudflare官网？"
         tgaction
