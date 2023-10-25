@@ -181,7 +181,7 @@ if [[ $(echo "$response" | jq -r '.success') == "true" ]]; then
         for record in $(echo "$records" | jq -c '.[]'); do
             record_id=$(echo "$record" | jq -r '.id')
             delete_url="$url/$record_id"
-            delete_response=$(curl -sm10 -X DELETE "$delete_url" -H "X-Auth-Email: $x_email" -H "X-Auth-Key: $api_key")
+            delete_response=$(curl -s -X DELETE "$delete_url" -H "X-Auth-Email: $x_email" -H "X-Auth-Key: $api_key")
             if [[ $(echo "$delete_response" | jq -r '.success') == "true" ]]; then
                 echo "成功删除 DNS 记录：$(echo "$record" | jq -r '.name')"
             else
