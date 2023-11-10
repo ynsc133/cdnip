@@ -72,6 +72,7 @@ fi
 
 cd /root/cfipopw/ && rm -rf informlog && bash cdnac.sh
 if [ "$ymorip" == "1" ]; then
+sed -i '/api.cloudflare.com/d' /etc/hosts
 proxy="false";
 max_retries=5
 for ((i=1; i<=$max_retries; i++)); do
